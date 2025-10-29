@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 
-option csharp_namespace = "AttrectoTest.Common.Grpc.Iam";
+option csharp_namespace = "Grpc.Common.Iam";
 
 package iam;
 
