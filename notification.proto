@@ -6,8 +6,11 @@ package notifcation;
 
 service NotificationService {
     rpc Ping (PingRequest) returns (PingResponse);  
+
     rpc SendRegistrationEmail (RegistrationEmailRequest) returns (NotificationResponse);
-    rpc SendFeedNotification (FeedNotificationRequest) returns (NotificationResponse);
+
+    rpc SendFeedNotification (FeedNotificationMessage) returns (Empty);
+    rpc FeedSubscribe (FeedSubscribeRequest) returns (stream FeedNotificationMessage);
 }
 
 message PingRequest {
@@ -24,6 +27,11 @@ message RegistrationEmailRequest {
   string verificationLink = 3;
 }
 
+message NotificationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
 message FeedNotificationRequest {
   string fromUserId = 1;
   string toUserId = 2;
@@ -31,7 +39,18 @@ message FeedNotificationRequest {
   string type = 4; // "like" or "comment"
 }
 
-message NotificationResponse {
-  bool success = 1;
-  string message = 2;
+message FeedSubscribeRequest {
+  string userId = 1;
+}
+
+message FeedNotificationMessage {
+  string toUserId = 1;
+  string fromUser = 2;
+  string type = 3; // pl. "like" vagy "comment"
+  string message = 4;
+}
+
+
+message Empty {
+
 }

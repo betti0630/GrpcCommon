@@ -8,7 +8,7 @@
 
 	<PropertyGroup>
 		<PackageId>AttrectoTest.Grpc.Common</PackageId>
-		<Version>0.2.0</Version>
+		<Version>0.3.0</Version>
 		<Authors>Beata Dudas</Authors>
 		<PackageDescription>Grpc proto files for IAM and Notification services</PackageDescription>
 		<RepositoryUrl>https://github.com/betti0630/GrpcCommon</RepositoryUrl>
